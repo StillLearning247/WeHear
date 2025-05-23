@@ -1,14 +1,34 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ChevronRight, Calendar, Shield, UserPlus, Clock } from "lucide-react";
+import {
+  CheckCircle2,
+  ChevronRight,
+  Calendar,
+  Shield,
+  UserPlus,
+  Clock,
+} from "lucide-react";
 import ServiceTiers from "@/components/service-tiers";
 import TestimonialCarousel from "@/components/testimonial-carousel";
 import CaregiverShowcase from "@/components/caregiver-showcase";
 import FaqSection from "@/components/faq-section";
 import { MotionDiv } from "@/components/motion-div";
+import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
+  const { isSignedIn } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isSignedIn) {
+      router.replace("/dashboard");
+    }
+  }, [isSignedIn, router]);
+
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}
@@ -22,16 +42,16 @@ export default function Home() {
               className="space-y-6"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Compassionate Care for <span className="text-primary">Your Loved Ones</span>
+                Compassionate Care for{" "}
+                <span className="text-primary">Your Loved Ones</span>
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-lg">
-                WeHear provides personalized elderly care services that enhance quality of life, independence, and peace of mind.
+                WeHear provides personalized elderly care services that enhance
+                quality of life, independence, and peace of mind.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
-                  <Link href="/services">
-                    Explore Our Services
-                  </Link>
+                  <Link href="/services">Explore Our Services</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/contact">
@@ -42,11 +62,15 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 bg-gray-200 dark:bg-gray-700"></div>
+                    <div
+                      key={i}
+                      className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 bg-gray-200 dark:bg-gray-700"
+                    ></div>
                   ))}
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
-                  <span className="font-bold">Trusted by 1,000+</span> families across the country
+                  <span className="font-bold">Trusted by 1,000+</span> families
+                  across the country
                 </p>
               </div>
             </MotionDiv>
@@ -76,27 +100,28 @@ export default function Home() {
               Why Choose WeHear?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              We provide specialized care solutions that adapt to the unique needs of each individual.
+              We provide specialized care solutions that adapt to the unique
+              needs of each individual.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <FeatureCard 
+            <FeatureCard
               icon={<Calendar className="h-8 w-8" />}
               title="Flexible Scheduling"
               description="Customize care schedules to fit your loved one's routine and needs."
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<Shield className="h-8 w-8" />}
               title="Vetted Caregivers"
               description="All our caregivers undergo thorough background checks and training."
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<UserPlus className="h-8 w-8" />}
               title="Personalized Care"
               description="Tailored care plans designed around specific health needs and preferences."
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<Clock className="h-8 w-8" />}
               title="24/7 Support"
               description="Round-the-clock assistance and emergency response when you need it most."
@@ -116,7 +141,7 @@ export default function Home() {
               Choose the perfect care package that suits your needs and budget.
             </p>
           </div>
-          
+
           <ServiceTiers />
         </div>
       </section>
@@ -129,10 +154,11 @@ export default function Home() {
               Meet Our Caregivers
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Our team of compassionate professionals dedicated to enhancing the lives of seniors.
+              Our team of compassionate professionals dedicated to enhancing the
+              lives of seniors.
             </p>
           </div>
-          
+
           <CaregiverShowcase />
         </div>
       </section>
@@ -148,7 +174,7 @@ export default function Home() {
               Hear from families who have experienced our care firsthand.
             </p>
           </div>
-          
+
           <TestimonialCarousel />
         </div>
       </section>
@@ -164,7 +190,7 @@ export default function Home() {
               Find answers to common questions about our services.
             </p>
           </div>
-          
+
           <FaqSection />
         </div>
       </section>
@@ -177,18 +203,20 @@ export default function Home() {
               Ready to Get Started?
             </h2>
             <p className="text-xl mb-8 text-white/90">
-              Take the first step towards compassionate care for your loved ones.
+              Take the first step towards compassionate care for your loved
+              ones.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/services">
-                  Explore Services
-                </Link>
+                <Link href="/services">Explore Services</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-                <Link href="/contact">
-                  Contact Us
-                </Link>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+                asChild
+              >
+                <Link href="/contact">Contact Us</Link>
               </Button>
             </div>
           </div>
@@ -214,7 +242,9 @@ const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
       className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all duration-200"
     >
       <div className="text-primary mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{title}</h3>
+      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+        {title}
+      </h3>
       <p className="text-gray-600 dark:text-gray-300">{description}</p>
     </MotionDiv>
   );

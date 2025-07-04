@@ -77,6 +77,9 @@ next-env.d.ts
 # Yarn Integrity file
 .yarn-integrity
 node_modules
+<<<<<<< HEAD
 
 # clerk configuration (can include secrets)
 /.clerk/
+=======
+>>>>>>> 16c57e2c5bb5d22b0882a2a9810bf1ee847b1e30

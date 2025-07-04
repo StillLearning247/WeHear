@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
-    "target": "es5",
-=======
-    "target": "ES2017",
->>>>>>> 16c57e2c5bb5d22b0882a2a9810bf1ee847b1e30
+    "target": "es2017",
     "lib": [
       "dom",
       "dom.iterable",
@@ -12,23 +8,14 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-<<<<<<< HEAD
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-=======
-    "strict": false,
-    "noEmit": true,
-    "incremental": true,
-    "module": "esnext",
-    "esModuleInterop": true,
->>>>>>> 16c57e2c5bb5d22b0882a2a9810bf1ee847b1e30
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-<<<<<<< HEAD
     "incremental": true,
     "baseUrl": ".",
     "paths": {
@@ -36,8 +23,6 @@
         "./src/*"
       ]
     },
-=======
->>>>>>> 16c57e2c5bb5d22b0882a2a9810bf1ee847b1e30
     "plugins": [
       {
         "name": "next"
@@ -45,17 +30,10 @@
     ]
   },
   "include": [
-<<<<<<< HEAD
-    "**/*.ts",
-    "**/*.tsx",
-    "next-env.d.ts",
-    ".next/types/**/*.ts"
-=======
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
->>>>>>> 16c57e2c5bb5d22b0882a2a9810bf1ee847b1e30
   ],
   "exclude": [
     "node_modules"

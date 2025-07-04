@@ -84,7 +84,6 @@ const Navbar = () => {
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-600 hover:bg-transparent hover:text-primary dark:text-gray-300"
-              aria-label="Toggle menu"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>

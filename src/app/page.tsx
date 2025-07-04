@@ -73,22 +73,21 @@ export default function Home() {
                 </p>
               </div>
             </MotionDiv>
+            {/* --- HERO IMAGE FIXED SIZE --- */}
             <MotionDiv
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative rounded-xl overflow-hidden shadow-2xl"
+              className="relative rounded-xl overflow-hidden shadow-2xl max-w-md mx-auto"
             >
-              <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden">
-                <Image
-                  src="https://images.pexels.com/photos/7551617/pexels-photo-7551617.jpeg"
-                  alt="Elderly care"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                  priority
-                />
-              </div>
+              <Image
+                src="https://images.pexels.com/photos/7551617/pexels-photo-7551617.jpeg"
+                alt="Elderly care"
+                width={400}
+                height={267}
+                className="rounded-xl object-cover w-full h-auto"
+                priority
+              />
             </MotionDiv>
           </div>
         </div>
@@ -181,7 +180,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* CTA Section */}
+      {/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">

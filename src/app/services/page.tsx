@@ -261,13 +261,17 @@ const SpecializedServiceCard = ({ title, description, imageUrl }: SpecializedSer
   return (
     <div className="group relative overflow-hidden rounded-xl shadow-md">
       <div className="relative h-64 w-full">
-        <Image 
-          src={imageUrl}
-          alt={title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+        <div className="relative w-full h-full">
+          <Image 
+            src={imageUrl}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+        </div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>

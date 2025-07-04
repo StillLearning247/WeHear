@@ -9,8 +9,6 @@ import {
 } from "@clerk/nextjs";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
-import DashboardPage from "./dashboard/page";
-import { DashboardContent } from "@/components/dashboard-content";
 
 const inter = Inter({
   variable: "--font-inter",

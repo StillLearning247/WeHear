@@ -13,7 +13,6 @@ import {
 import ServiceTiers from "@/components/service-tiers";
 import TestimonialCarousel from "@/components/testimonial-carousel";
 import CaregiverShowcase from "@/components/caregiver-showcase";
-import FaqSection from "@/components/faq-section";
 import { MotionDiv } from "@/components/motion-div";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
@@ -80,13 +79,16 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative rounded-xl overflow-hidden shadow-2xl"
             >
-              <Image
-                src="https://images.pexels.com/photos/7551617/pexels-photo-7551617.jpeg"
-                alt="Elderly care"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover rounded-xl"
-              />
+              <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden">
+                <Image
+                  src="https://images.pexels.com/photos/7551617/pexels-photo-7551617.jpeg"
+                  alt="Elderly care"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </MotionDiv>
           </div>
         </div>
@@ -179,23 +181,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Find answers to common questions about our services.
-            </p>
-          </div>
-
-          <FaqSection />
-        </div>
-      </section>
-
-      {/* CTA Section */}
+{/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">

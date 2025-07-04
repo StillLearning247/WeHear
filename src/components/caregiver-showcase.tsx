@@ -66,14 +66,18 @@ export default function CaregiverShowcase() {
           viewport={{ once: true }}
         >
           <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow duration-300">
-            <div className="relative aspect-[3/4] overflow-hidden">
-              <Image
-                src={caregiver.imageUrl}
-                alt={caregiver.name}
-                fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div className="relative h-64 w-full overflow-hidden rounded-t-lg">
+              <div className="relative w-full h-full">
+                <Image
+                  src={caregiver.imageUrl}
+                  alt={caregiver.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              </div>
               <div className="absolute bottom-0 left-0 p-4 text-white">
                 <div className="flex items-center space-x-1 mb-1">
                   {[...Array(5)].map((_, i) => (

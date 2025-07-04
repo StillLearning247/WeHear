@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
 import { Badge } from "@/components/ui/badge";
 import { 
   Clock, 
@@ -202,22 +201,7 @@ export function DashboardContent() {
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle>Calendar</CardTitle>
-                  <CardDescription>
-                    View and manage your schedule
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    className="rounded-md border"
-                  />
-                </CardContent>
-              </Card>
+
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

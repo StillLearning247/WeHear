@@ -73,12 +73,13 @@ export default function TestimonialCarousel() {
         <div className="relative flex flex-col md:flex-row items-center">
           <div className="md:w-1/3 bg-primary h-full p-6 md:p-10 flex flex-col justify-center items-center">
             <Quote className="h-12 w-12 text-white/80 mb-4" />
-            <div className="relative h-24 w-24 md:h-32 md:w-32 rounded-full overflow-hidden border-4 border-white mb-6">
-              <Image 
+            <div className="relative h-14 w-14">
+              <Image
                 src={testimonials[activeIndex].avatarUrl}
                 alt={testimonials[activeIndex].author}
                 fill
-                className="object-cover"
+                sizes="56px"
+                className="rounded-full object-cover border-2 border-primary/20"
               />
             </div>
             <div className="text-center text-white">
